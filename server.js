@@ -1,7 +1,12 @@
 const express = require('express');
 const products = require('./product');
+const cors = require('cors');
 
 const app = express();
+
+if (process.env.NODE_ENV !== 'production') {
+  app.use(cors());
+}
 
 app.get('/', (req, res) => {
   res.send('ProShop Backend is running...');
