@@ -1,7 +1,7 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const products = require('./product');
-const cors = require('cors');
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import products from './product.js';
 
 dotenv.config();
 
