@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "data:import": "node seeder",
+    "data:destroy": "node seeder -d"
   },
   "author": "Ranjan Kumar Mandal",
   "license": "MIT",
