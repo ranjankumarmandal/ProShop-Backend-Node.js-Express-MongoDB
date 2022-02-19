@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.get('/', (req, res) => {
-  res.send('ProShop Backend is running...');
+  res.send('ProShop Backend is running (Made by Ranjan Kumar Mandal)...');
 });
 
 app.use('/api/products', productRoutes);
