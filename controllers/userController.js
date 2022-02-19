@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
+import bcrypt from 'bcryptjs';
 
 // @desc    Auth user & get token
 // @route   POST /api/users/login
@@ -7,9 +8,9 @@ import User from '../models/userModel.js';
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  const user = User.findOne({ email });
+  const user = await User.findOne({ email });
 
-  if (user && (await user.matchPassword(password))) {
+  if (user && bcrypt.compare(user.password, password)) {
     res.json({
       _id: user._id,
       name: user.name,
@@ -17,7 +18,7 @@ const authUser = asyncHandler(async (req, res) => {
       isAdmin: user.isAdmin,
       token: null,
     });
-  }
+  } else res.status(401).json({ message: 'Invalid email or password' });
 });
 
 export { authUser };
