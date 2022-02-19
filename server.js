@@ -11,6 +11,8 @@ connectDB();
 
 const app = express();
 
+app.use(express.json()); // express middleware for accepting json data in the body
+
 if (process.env.NODE_ENV !== 'production') {
   app.use(cors());
 }
