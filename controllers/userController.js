@@ -17,7 +17,7 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      token: null,
+      token: jwt.sign({ _id }, process.env.JWT_TOKEN),
     });
   } else res.status(401).json({ message: 'Invalid email or password' });
 });
