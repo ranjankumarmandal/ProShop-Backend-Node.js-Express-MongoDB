@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   const user = await User.findOne({ email });
   const id = user._id; // user id from mongoDB for jwt.sign()
