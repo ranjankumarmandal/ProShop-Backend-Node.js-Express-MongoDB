@@ -3,8 +3,8 @@ import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-// @desc    Auth user & get token
-// @route   POST /api/users/login
+// @desc    Register a new user
+// @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
