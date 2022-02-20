@@ -10,6 +10,7 @@ const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
+  const id = user._id; // user id from mongoDB for jwt.sign()
 
   if (user && bcrypt.compare(user.password, password)) {
     res.json({
@@ -17,7 +18,7 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      token: jwt.sign({ _id }, process.env.JWT_TOKEN),
+      token: jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1h' }),
     });
   } else res.status(401).json({ message: 'Invalid email or password' });
 });
