@@ -22,6 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
       token: jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1h' }),
     });
   } else {
+    res.status(400).json({ message: 'Invalid user data' });
   }
 });
 
