@@ -37,7 +37,7 @@ const authUser = asyncHandler(async (req, res) => {
     const user = await User.findOne({ email });
     const id = user._id; // user id from mongoDB for jwt.sign()
 
-    if (user && bcrypt.compare(user.password, password)) {
+    if (user && bcrypt.compare(password, user.password)) {
       res.json({
         _id: user._id,
         name: user.name,
