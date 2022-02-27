@@ -3,6 +3,7 @@ import {
   registerUser,
   authUser,
   getUserProfile,
+  updateUserProfile,
 } from '../controllers/userController.js';
 import { protect } from '../middlewares/authMiddleware.js';
 
