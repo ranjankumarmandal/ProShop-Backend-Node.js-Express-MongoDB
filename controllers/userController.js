@@ -95,4 +95,4 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { registerUser, authUser, getUserProfile };
+export { registerUser, authUser, getUserProfile, updateUserProfile };
