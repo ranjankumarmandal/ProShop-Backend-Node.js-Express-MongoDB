@@ -29,5 +29,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
       shippingPrice,
       totalPrice,
     });
+
+    const createdOrder = await order.save();
   }
 });
