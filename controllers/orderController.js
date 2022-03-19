@@ -48,4 +48,4 @@ const getOrderById = asyncHandler(async (req, res) => {
   else res.status(404).json({ message: 'Order not found' });
 });
 
-export { addOrderItems };
+export { addOrderItems, getOrderById };
