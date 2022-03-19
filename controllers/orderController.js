@@ -48,4 +48,17 @@ const getOrderById = asyncHandler(async (req, res) => {
   else res.status(404).json({ message: 'Order not found' });
 });
 
+// @desc    Update order to paid
+// @route   GET /api/orders/:id/pay
+// @access  Private
+const updateOrderToPaid = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id).populate(
+    'user',
+    'name email'
+  );
+
+  if (order) res.json(order);
+  else res.status(404).json({ message: 'Order not found' });
+});
+
 export { addOrderItems, getOrderById };
