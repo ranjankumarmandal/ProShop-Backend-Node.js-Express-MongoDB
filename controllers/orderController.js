@@ -65,6 +65,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     };
 
     const updatedOrder = await order.save();
+    res.json(updatedOrder);
   } else res.status(404).json({ message: 'Order not found' });
 });
 
