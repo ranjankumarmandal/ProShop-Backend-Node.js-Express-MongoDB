@@ -3,6 +3,7 @@ import {
   addOrderItems,
   getOrderById,
   updateOrderToPaid,
+  getMyOrders,
 } from '../controllers/orderController.js';
 import { protect } from '../middlewares/authMiddleware.js';
 
